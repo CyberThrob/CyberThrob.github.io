@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import PostCard from "./PostCard.astro";
+import type { OK } from "astro:schema";
+
+const posts = (await getCollection("posts")).sort(
+    (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<div class="grid grid-cols-1 gap-5 px-5 sm:px-5">
+    <div>
+        <PostCard
+            link={`/${posts[0].slug}/`}
+            title={posts[0].data.title}
+            imgSrc={posts[0].data.heroImage}
+            description={posts[0].data.description}
+        />
+    </div>
+    <ul class="grid grid-cols-1 lg:grid-cols-3 gap-3 ">
+        {
+            posts
+                .filter(function (post: any) {
+                    if (post.data.pubDate != posts[0].data.pubDate) return post;
+                })
+                .map((post: any) => (
+                    <li>
+                        <PostCard
+                            link={`/${post.slug}/`}
+                            title={post.data.title}
+                            imgSrc={post.data.heroImage}
+                            description={post.data.description}
+                        />
+                    </li>
+                ))
+        }
+    </ul>
+</div>

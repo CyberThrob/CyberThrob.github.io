@@ -1,0 +1,52 @@
+---
+import Header from "../components/Header.astro";
+import Background from "../components/Background.astro";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body
+		class="relative min-h-screen overflow-x-hidden max-w-screen h-full items-center text-white"
+	>
+		<Background />
+		<Header />
+		<main class="xl:w-[76rem] mx-auto py-5">
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style>
+	@font-face {
+		font-family: "Atkinson";
+		src: url("/fonts/atkinson-regular.woff") format("woff");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: "Atkinson";
+		src: url("/fonts/atkinson-bold.woff") format("woff");
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	body {
+		font-family: "Atkinson", sans-serif;
+	}
+</style>
