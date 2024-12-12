@@ -1,0 +1,32 @@
+/*@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+ 
+  .card-wrapper {
+    @apply relative overflow-hidden rounded-2xl w-[100%] h-[100%];
+  }
+
+  
+  .card-wrapper::before {
+    background: conic-gradient(
+      rgba(0, 162, 255, 0.7) 50deg,
+      rgba(0, 110, 255, 0.5) 10deg,
+      transparent 9deg
+      
+    );
+
+    @apply absolute left-[-75%] top-[-75%] h-[250%] w-[250%] animate-border-spin hover:content-[''] -z-[1];
+  }
+
+  .card-wrapper::before {
+    filter: blur(1.5rem)
+  }
+
+  
+  .card-content {
+    @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-slate-900;
+    @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-slate-900;
+  }
+}*/
