@@ -17,7 +17,7 @@ const posts = (await getCollection("posts")).sort(
             description={posts[0].data.description}
         />
     </div>
-    <ul class="grid grid-cols-1 lg:grid-cols-3 gap-3 ">
+    <ul class="grid grid-cols-1 lg:grid-cols-3 gap-3">
         {
             posts
                 .filter(function (post: any) {
