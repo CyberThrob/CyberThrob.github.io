@@ -10,7 +10,7 @@ const { imgSrc, title, link, description } = Astro.props;
 ---
 
 <a
-    class="flex flex-col hover:text-blue-400 bg-slate-900 gradient-card bg-opacity-40 rounded-xl transition-transform duration-300 ease-out hover:scale-[1.03]"
+    class="flex flex-col hover:text-blue-400 bg-slate-900 gradient-card bg-opacity-90 rounded-xl transition-transform duration-300 ease-out hover:scale-[1.03]"
     href={link}
     title={description}
 >
@@ -32,10 +32,13 @@ const { imgSrc, title, link, description } = Astro.props;
         background-image: linear-gradient(
             45deg,
             rgba(0, 132, 255, 0.1),
+            rgba(0, 0, 255, 0.1),
+            rgba(132, 0, 255, 0.2),
+            rgba(0, 132, 255, 0.1),
             rgba(0, 0, 255, 0.1)
         );
         background-size: 400%;
-        animation: bg-anim 1s infinite alternate;
+        animation: bg-anim 3s infinite alternate;
     }
 
     @keyframes bg-anim {
