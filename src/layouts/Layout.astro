@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Background from "../components/Background.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
 	title: string;
@@ -22,10 +23,11 @@ const { title } = Astro.props;
 		class="relative min-h-screen overflow-x-hidden max-w-screen h-full items-center text-white"
 	>
 		<Background />
-		<Header />
-		<main class="xl:w-[76rem] mx-auto py-5">
+		<Header home />
+		<main class="xl:w-[76rem] mx-auto py-5 pb-64">
 			<slot />
 		</main>
+		<Footer />
 	</body>
 </html>
 

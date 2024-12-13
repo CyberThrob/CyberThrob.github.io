@@ -15,6 +15,7 @@ const posts = (await getCollection("posts")).sort(
             title={posts[0].data.title}
             imgSrc={posts[0].data.heroImage}
             description={posts[0].data.description}
+            isFirst
         />
     </div>
     <ul class="grid grid-cols-1 lg:grid-cols-3 gap-3">
@@ -30,6 +31,7 @@ const posts = (await getCollection("posts")).sort(
                             title={post.data.title}
                             imgSrc={post.data.heroImage}
                             description={post.data.description}
+                            isFirst={false}
                         />
                     </li>
                 ))

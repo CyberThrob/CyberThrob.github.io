@@ -4,28 +4,36 @@ interface Props {
     link: string;
     title: string;
     description: string;
+    isFirst: boolean;
 }
 
-const { imgSrc, title, link, description } = Astro.props;
+const { imgSrc, title, link, description, isFirst } = Astro.props;
+
+const outlineClasses = isFirst ? "card-outline p-[1px] hover:p-[3px] rounded-xl" : "";
 ---
 
-<a
-    class="flex flex-col hover:text-blue-400 bg-slate-900 gradient-card bg-opacity-90 rounded-xl transition-transform duration-300 ease-out hover:scale-[1.03]"
-    href={link}
-    title={description}
+<div
+    class={`${"transition-transform duration-300 ease-out hover:scale-[1.03]"} ${outlineClasses}`}
 >
-    <img
-        class="p-[0.2rem] rounded-xl overflow-hidden h-full w-full"
-        src={imgSrc}
-        alt=""
-    />
-
-    <h1
-        class="lg:h-[10rem] py-10 px-2 text-center font-bold text-2xl overflow-auto"
+    <a
+        class="flex flex-col hover:text-blue-400 bg-slate-900 gradient-card
+        rounded-xl"
+        href={link}
+        title={description}
     >
-        {title}
-    </h1>
-</a>
+        <img
+            class="p-[0.2rem] rounded-xl overflow-hidden h-full w-full"
+            src={imgSrc}
+            alt=""
+        />
+
+        <h1
+            class="lg:h-[10rem] py-10 px-2 text-center font-bold text-2xl overflow-auto"
+        >
+            {title}
+        </h1>
+    </a>
+</div>
 
 <style>
     :hover.gradient-card {
@@ -47,6 +55,41 @@ const { imgSrc, title, link, description } = Astro.props;
         }
         100% {
             background-position: right;
+        }
+    }
+
+    .card-outline {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .card-outline::before {
+        background: conic-gradient(
+            rgba(0, 132, 255, 1) 45deg,
+            rgba(0, 0, 255, 1) 90deg,
+            rgba(132, 0, 255, 1) 135deg,
+            rgba(0, 132, 255, 1) 180deg,
+            rgba(0, 0, 255, 1) 225deg,
+            rgba(132, 0, 255, 1) 270deg,
+            rgba(0, 132, 255, 1) 315deg,
+            rgba(0, 0, 255, 1) 360deg,
+            transparent 360deg
+        );
+        position: absolute;
+        left: -75%;
+        top: -75%;
+        height: 250%;
+        width: 250%;
+        z-index: -1;
+        content: var(--tw-content);
+        animation: outline-anim 7s linear infinite;
+    }
+
+    @keyframes outline-anim {
+        100% {
+            transform: rotate(-360deg);
         }
     }
 </style>
