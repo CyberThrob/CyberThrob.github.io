@@ -1,7 +1,50 @@
+---
+interface Props {
+    home: boolean;
+}
+
+const { home } = Astro.props;
+---
+
 <header
     class="sticky inset-x-0 top-0 w-full z-10 flex items-center justify-center mx-auto sm:mx-0
-    bg-slate-900 bg-opacity-30 backdrop-blur-sm font-bold"
+    bg-slate-900 bg-opacity-80 backdrop-blur-sm font-bold"
 >
-    <a class="text-5xl p-3" href="/">Cyber Throb</a>
+    <div class="flex flex-row">
+        {
+            !home ?
+                <button id="back-bt">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-left"
+                    >
+                        <>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l14 0" />
+                        </>
+                        <path d="M5 12l4 4" />
+                        <path d="M5 12l4 -4" />
+                    </svg>
+                </button>
+                :
+                <div></div>
+            
+        }
+        <a class="text-5xl p-3" href="/">Cyber Throb</a>
+    </div>
 </header>
 
+<script>
+    const backBt = document.querySelector("#back-bt") as Element;
+    backBt?.addEventListener("click", () => {
+        history.back();
+    });
+</script>
