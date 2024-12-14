@@ -74,8 +74,7 @@ const outlineClasses = isFirst ? "card-outline p-[1px] hover:p-[3px] rounded-xl"
             rgba(0, 0, 255, 1) 225deg,
             rgba(132, 0, 255, 1) 270deg,
             rgba(0, 132, 255, 1) 315deg,
-            rgba(0, 0, 255, 1) 360deg,
-            transparent 360deg
+            rgba(0, 0, 255, 1) 360deg
         );
         position: absolute;
         left: -75%;
@@ -85,6 +84,7 @@ const outlineClasses = isFirst ? "card-outline p-[1px] hover:p-[3px] rounded-xl"
         z-index: -1;
         content: var(--tw-content);
         animation: outline-anim 7s linear infinite;
+        filter: blur(2rem);
     }
 
     :hover.card-outline::before{
