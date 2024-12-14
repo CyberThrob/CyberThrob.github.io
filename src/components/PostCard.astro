@@ -87,6 +87,10 @@ const outlineClasses = isFirst ? "card-outline p-[1px] hover:p-[3px] rounded-xl"
         animation: outline-anim 7s linear infinite;
     }
 
+    :hover.card-outline::before{
+        content: none;
+    }
+
     @keyframes outline-anim {
         100% {
             transform: rotate(-360deg);
