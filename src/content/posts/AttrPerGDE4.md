@@ -1,5 +1,5 @@
 ---
-title: "Crear un atributo C# personalizado en GDE 4"
+title: "Crear un atributo C# personalizado en GDEngine 4"
 description: "Crea un atributo personalizado C# en godot engine 4"
 pubDate: "Jul 15 2024"
 updatedDate: "Dec 10 2024"
